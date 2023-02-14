@@ -1,0 +1,14 @@
+#include <bits/stdc++.h> 
+void reverseArray(vector<int> &arr , int m)
+{
+	// Write your code here.
+	int n = arr.size();
+	int p1 = m+1;
+	int p2 = n-1;
+	while( p1 <= p2)
+	{
+		swap(arr[p1],arr[p2]);
+		p1++;
+		p2--;
+	}
+}
