@@ -1,0 +1,39 @@
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& arr, int target) {
+        int n = arr.size();
+        // vector<int>vector;
+        // int first, last;
+        // first = lower_bound(arr,arr+n,target) - arr;
+        // last  = upper_bound(arr,arr+n,target) - arr -1;
+        // if(first == n)
+        // {
+        //     first = -1;
+        //     last = -1;
+        // }
+        // vector.push_back(first);
+        // vector.push_back(last);
+        // return vector;
+        int id = -1, count = 0;
+        for(int i = 0; i < n; i++ )
+        {
+            if( arr[i] <= target)// target number se upper nhi jayega
+            {
+                if(arr[i] == target)
+                {
+                    id = i;
+                    count++;
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
+        if(count == 0)
+        {
+            return {-1,-1};
+        }
+        return {id-count+1,id};
+    }
+};
