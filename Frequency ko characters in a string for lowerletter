@@ -1,0 +1,33 @@
+// C++ implementation to print the character and
+// its frequency in order of its occurrence
+#include <bits/stdc++.h>
+using namespace std;
+
+#define SIZE 26
+
+// function to print the character and its frequency
+// in order of its occurrence
+void printCharWithFreq(string str)
+{
+    int n = str.size();
+    int frequency[SIZE];
+    memset(frequency,0,sizeof(frequency));
+    for(int i = 0; i < n; i++)
+    {
+        frequency[str[i] - 'a']++;
+    }
+    for(int i = 0; i < n; i++)
+    {
+        if(frequency[str[i] - 'a'] != 0)
+        cout << str[i] << frequency[str[i] - 'a'] << endl;
+        frequency[str[i] - 'a'] = 0;// jisse woh wapas print na ho character
+    }
+}
+
+// Driver program to test above
+int main()
+{
+	string str = "geeksforgeeks";
+	printCharWithFreq(str);
+	return 0;
+}
