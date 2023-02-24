@@ -1,0 +1,38 @@
+#include <bits/stdc++.h> 
+char toLowerCase(char c) {
+    if(c >= 48 && c <= 57) 
+        return c;
+    if(c <= 'z' & c >= 'a')
+        return c;
+    else {
+        c = c - 'A' + 'a';
+        return c;
+    }
+}
+
+string ignorSpecialChar(string s, int n) {
+    string newS;
+    for(int i= 0; i<=n; i++) {
+         if((s[i] <= 'z' && s[i] >= 'a') || (s[i] <= 'Z' && s[i] >= 'A') || (s[i] >= 48 && s[i] <= 57) ) {
+         newS.push_back(s[i]);
+         }
+    }
+    return newS;
+}
+bool checkPalindrome(string s)
+{
+    int n = s.length() - 1;
+     
+    s = ignorSpecialChar(s, n);
+      n = s.length() - 1;
+    
+    for(int i= 0; i<=n; ) {
+         
+            if(toLowerCase(s[i]) == toLowerCase(s[n--]))
+                i++;
+            else 
+             return false;   
+         
+    }
+ return true;
+}
